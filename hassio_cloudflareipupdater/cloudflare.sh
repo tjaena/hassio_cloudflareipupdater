@@ -35,6 +35,7 @@ while true
 do
 
 echo "Current time: $(date "+%Y-%m-%d %H:%M:%S")"
+echo "IPv6: $IPV6"
 if [[ -z $IPV6 ]]; then
     ip_curl="curl -4s"
     record_type="A"
@@ -44,7 +45,7 @@ else
 fi
 
 # Determines the current IP address
-new_ip=$($ip_curl https://davidramosweb.com/miip.php)
+new_ip=$($ip_curl https://api64.ipfy.org)
 
 # IP address service fallbacks
 if [[ -z $new_ip ]]; then
